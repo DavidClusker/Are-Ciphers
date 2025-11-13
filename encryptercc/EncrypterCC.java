@@ -68,7 +68,7 @@ public class EncrypterCC {
          }if(tested == true){
              //extra bit of code to not show the message when inputing a string instead of int
          if(choiceThing!=1 && choiceThing!=2){
-             JOptionPane.showMessageDialog(null, "you dumbass didn't type 1 or 2, wtf is wrong with yout small little tiny sad brain you fucking moronic piece of shit, holy crap I HAVE NEVER seen someone as stupid, as idiotic, as totally cretonic as you have. Your family must be on the verge of suicide from your sheer incompetence in life and everything you do. you had 2 FUCKING CHOICES AND YOU PICKED NEITHER. you want to be so special huh? well, you are, specially fucking stupid, congrats take this idiot award you fucking idiot.");
+             JOptionPane.showMessageDialog(null, "Should have picked 1 or 2. Dumbass.");
          }
          }
          
@@ -152,6 +152,7 @@ public class EncrypterCC {
     
     
 }
+
 
 
 
