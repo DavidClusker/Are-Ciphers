@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
  *
  * @author s
  */
-// The cipher is based on the default/basic ahh caeser cipher! (aka the public domain concept cuh)
+// The cipher logic is based on the classical shift cipher (public domain concept).
 public class EncrypterCC {
 
     /**
@@ -26,12 +26,25 @@ public class EncrypterCC {
          int encryption;
          //not setting this  to 0 for some reason triggers the else choice, not sure why
          int choiceThing=0;
+         //used to take the input
+         String verify;
+         //tests if the input is actually what needed
+         boolean tested;
+         
          
          //lets the user choose if they are encrypting or decrypting a message
-        
-         choiceThing = Integer.parseInt(JOptionPane.showInputDialog("Please enter if you would like to encrypt or decrypt the message\n 1=encrypt\n2=decrypt"));
-         
+         verify = JOptionPane.showInputDialog("Please enter if you would like to encrypt or decrypt the message\n 1=encrypt\n2=decrypt");
+         // checks if the input is 1 or 2
+         tested = verifyThis(verify);
+         //if statement to see if the veirification is good, if good sets the option
+         if(tested){
+             choiceThing = Integer.parseInt(verify);
+         }else{
+             //tells the user that the code is not working
+             JOptionPane.showMessageDialog(null,"Please enter a NUMBER greater than 0.");
+         }
          //encrypt
+         
          if(choiceThing == 1){
              input = JOptionPane.showInputDialog("please enter the word");
              //set the input to lower case so I only need to use the 97 ASCII characters
@@ -51,9 +64,15 @@ public class EncrypterCC {
              StringBuffer result = decryptionMethod(input, encryption);
              JOptionPane.showMessageDialog(null, "answer for your decryption is " + result);
              //choose something else
-         }if(choiceThing!=1||choiceThing!=2){
+             
+         }if(tested == true){
+             //extra bit of code to not show the message when inputing a string instead of int
+         if(choiceThing!=1 && choiceThing!=2){
              JOptionPane.showMessageDialog(null, "you dumbass didn't type 1 or 2, wtf is wrong with yout small little tiny sad brain you fucking moronic piece of shit, holy crap I HAVE NEVER seen someone as stupid, as idiotic, as totally cretonic as you have. Your family must be on the verge of suicide from your sheer incompetence in life and everything you do. you had 2 FUCKING CHOICES AND YOU PICKED NEITHER. you want to be so special huh? well, you are, specially fucking stupid, congrats take this idiot award you fucking idiot.");
          }
+         }
+         
+         
          
          
           
@@ -101,11 +120,38 @@ public class EncrypterCC {
     //gives back the decrypted message
     return result;
 }
+//verify the input is an int rather than string
+    private static Boolean verifyThis(String verify) {
+       //have to set this as true bc otherwise I get red line on return :(
+        Boolean verified = true;
+        
+        //checks the entire thing is an int, and no letter snuck in
+        for(int i = 0; i < verify.length() ; i++){
+            //verificatiooooooooooonnnnnnnn
+            char num = verify.charAt(i);
+            if(Integer.parseInt(verify)==0){
+                    //makes 0 being invalid bc that number sucks
+            verified = false;
+            return verified;
+                }
+            if(Character.isDigit(num)){
+                
+                    //other numbers are fine or smth, so yh
+                verified = true;
+                
+            }else{
+                //none numbers getting DENIED YHH WE HATING
+                verified = false;
+                break;
+            }
+        }
+        //sends back the boolean
+        return verified;
+    }
+    
     
     
 }
-    
-    
-    
+
 
 
