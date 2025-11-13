@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
  *
  * @author s
  */
+// The cipher is based on the default/basic ahh caeser cipher! (aka the public domain concept cuh)
 public class EncrypterCC {
 
     /**
@@ -27,6 +28,7 @@ public class EncrypterCC {
          int choiceThing=0;
          
          //lets the user choose if they are encrypting or decrypting a message
+        
          choiceThing = Integer.parseInt(JOptionPane.showInputDialog("Please enter if you would like to encrypt or decrypt the message\n 1=encrypt\n2=decrypt"));
          
          //encrypt
@@ -105,4 +107,5 @@ public class EncrypterCC {
     
     
     
+
 
